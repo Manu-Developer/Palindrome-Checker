@@ -1,10 +1,10 @@
 const userInput = document.getElementById("user-input");
 const finalResult = document.getElementById("final-result");
 
-const checkPalindrome = () => {
-	processedString = userInput.value.toLowerCase().replace(/\s/g, "");
+const checkPalindrome = (string) => {
+	processedString = string.toLowerCase().replace(/\s/g, "");
 
-	if (userInput.value == "") {
+	if (string == "") {
 		finalResult.style.display = "none";
 	} else if (processedString.split("").reverse().join("") == processedString) {
 		finalResult.style.display = "block";
@@ -17,4 +17,6 @@ const checkPalindrome = () => {
 	}
 };
 
-userInput.addEventListener("keyup", checkPalindrome);
+userInput.addEventListener("keyup", () => {
+	checkPalindrome(userInput.value);
+});
